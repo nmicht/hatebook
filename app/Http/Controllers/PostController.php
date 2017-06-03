@@ -41,24 +41,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ModelsPost  $modelsPost
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(ModelsPost $modelsPost)
     public function show(Post $post)
     {
-        //
         return $post;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ModelsPost  $modelsPost
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(ModelsPost $modelsPost)
+    public function edit(Post $post)
     {
         //
     }
