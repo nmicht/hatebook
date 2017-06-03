@@ -13,7 +13,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,9 @@ class PostRequest extends FormRequest
      */
     public function rules()
     {
+        //https://laravel.com/docs/5.4/validation#available-validation-rules
         return [
-            //
+            'content' => 'required',
         ];
     }
 }
