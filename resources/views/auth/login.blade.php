@@ -52,7 +52,7 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                    ¿Olvidaste tu estúpida contraseña?
                                 </a>
                             </div>
                         </div>
