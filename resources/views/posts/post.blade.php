@@ -1,6 +1,8 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
+<div class="panel-heading">Tu pinche post</div>
+<div class="panel-body">
     <div class="media">
       <div class="media-left">
         <a href="#">
@@ -13,6 +15,6 @@
             Creado {{ $post->created_at }}
         </footer>
       </div>
-
     </div>
+</div>
 @stop

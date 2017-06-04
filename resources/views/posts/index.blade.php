@@ -1,8 +1,8 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
-    <h2>Todos tus pinches Posts</h2>
-
+<div class="panel-heading">Todos tus pinches posts</div>
+<div class="panel-body">
     <ul>
     @forelse ($posts as $post)
         <li>{{ $post->content }}</li>
@@ -10,4 +10,5 @@
         <p>No has pinche hecho ningún post, culero.</p>
     @endforelse
     </ul>
+</div>
 @stop
