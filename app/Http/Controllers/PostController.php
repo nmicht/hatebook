@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.form');
     }
 
     /**
@@ -37,7 +37,12 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        return Post::create($request->all());
+        Post::create([
+            'content' => $request->content,
+            'user_id' => \Auth::user()->id
+        ]);
+
+        return redirect('posts');
     }
 
     /**
