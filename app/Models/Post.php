@@ -15,6 +15,26 @@ class Post extends Model
     protected $fillable = [
         'content',
     ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'abstract',
+    ];
+
+    /**
+     * Get the abstract, that is a shorter string of content.
+     *
+     * @return string
+     */
+    public function getAbstractAttribute ()
+    {
+        return substr($this->content, 0, 30);
+    }
+
     /**
      * Get the diff for created at.
      *

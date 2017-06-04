@@ -7,7 +7,7 @@
     @forelse ($posts as $post)
         <li>
             <a href="{{ url('posts', $post->id) }}">
-                {{ $post->content }}
+                {{ $post->abstract }}
             </a>
         </li>
     @empty
