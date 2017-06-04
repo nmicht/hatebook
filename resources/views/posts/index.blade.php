@@ -9,6 +9,7 @@
             <a href="{{ url('posts', $post->id) }}">
                 {{ $post->abstract }}
             </a>
+            <small>{{ $post->created_at }}</small>
         </li>
     @empty
         <p>No has pinche hecho ningún post, culero.</p>
