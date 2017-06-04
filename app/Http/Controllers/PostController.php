@@ -71,8 +71,7 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        $post->content = $request->content;
-        $post->save();
+        $post->update($request->all());
 
         return $post;
     }
