@@ -7,7 +7,7 @@
 
 <div class="panel-heading">Todos tus pinches posts</div>
 <div class="panel-body">
-    <form class="form-horizontal" role="form" method="POST" action="{{ route('posts.index') }}">
+    <form class="form-horizontal" role="form" method="GET" action="{{ route('posts.index') }}">
         <div class="form-group">
             <label for="search" class="col-md-4 control-label">Qué pinches buscas?</label>
             <div class="col-md-6">
