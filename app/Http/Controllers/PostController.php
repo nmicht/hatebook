@@ -45,6 +45,8 @@ class PostController extends Controller
             'user_id' => \Auth::user()->id
         ]);
 
+        session()->flash('message','Pinche post creado');
+
         return redirect('posts');
     }
 
@@ -94,6 +96,8 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return ['status' => 'true'];
+        session()->flash('message','Pinche post, lo mandaste ALV');
+
+        return redirect('posts');
     }
 }

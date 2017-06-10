@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session()->has('message')):
+	{{ session()->get('message') }}
+@endif
+
 <div class="panel-heading">Todos tus pinches posts</div>
 <div class="panel-body">
     <ul>
