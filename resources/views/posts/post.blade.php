@@ -15,15 +15,15 @@
                 Publicado {{ $post->created_at }}
             </div>
         </div>
-        @if (Auth::user()->id == $post->user_id)
+        @can('delete-post', $post)
         <div class="">
             <form method="POST" action="{{ route('posts.destroy',$post->id) }}">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <button class="btn btn-danger" type="submit" name="button">ALV</button>
+                <button class="btn btn-danger btn-sm" type="submit" name="button">Mandar ALV</button>
             </form>
         </div>
-        @endif
+        @endcan
     </div>
 </div>
 @stop

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
@@ -99,10 +100,15 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if (\Gate::denies('delete-post', $post)) {
+            abort(403);
+        }
+
         $post->delete();
 
         session()->flash('message','Pinche post, lo mandaste ALV');
 
         return redirect('posts');
     }
+
 }
