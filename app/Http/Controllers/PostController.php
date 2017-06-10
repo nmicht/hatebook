@@ -22,7 +22,7 @@ class PostController extends Controller
         }
 
         $posts = $eb->latest()
-            ->get();
+            ->paginate(10);
 
         return view('posts.index', compact('posts'));
     }
