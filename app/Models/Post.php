@@ -33,7 +33,7 @@ class Post extends Model
      */
     public function getAbstractAttribute ()
     {
-        return substr($this->content, 0, 30);
+        return substr($this->content, 0, 30) . '...';
     }
 
     /**
@@ -52,5 +52,13 @@ class Post extends Model
     public function owner()
     {
         return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
+    /**
+     * The users that belong to the post.
+     */
+    public function interactions()
+    {
+        return $this->belongsToMany('App\Models\User', 'interactions')->withPivot('reaction');
     }
 }

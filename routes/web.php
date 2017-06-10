@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('posts', 'PostController');
 
+Route::get('interactions', 'UserController@interactions')->name('interactions');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
