@@ -48,4 +48,9 @@ class Post extends Model
         $value = Carbon::now()->diffForHumans($value);
         return $value;
     }
+
+    public function owner()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
 }
