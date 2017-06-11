@@ -22,7 +22,8 @@ class PostController extends Controller
             $eb->where('content','like','%'.$request->search.'%');
         }
 
-        $posts = $eb->latest()
+        $posts = $eb->withoutInteractions()
+            ->latest()
             ->paginate(10);
 
         return view('posts.index', compact('posts'));

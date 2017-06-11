@@ -61,4 +61,15 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Models\User', 'interactions')->withPivot('reaction');
     }
+
+    /**
+     * Scope to get the post that doesnt have interactions
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeWithoutInteractions($query)
+    {
+        return $query->doesntHave('interactions');
+    }
+
 }
