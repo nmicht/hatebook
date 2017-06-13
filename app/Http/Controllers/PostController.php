@@ -47,9 +47,29 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
+        $image = $request->image;
+        $date = \Carbon\Carbon::now()->format('YmdHis');
+        $name = $date . '-' . \Auth::user()->id ;
+        $extension = $image->extension();
+
+        if ($image->isValid()) {
+            //Valido tipo de imagen, peso, etc...
+            $image->storeAs('public/images', $name . '.' . $extension);
+
+            //Genero el thumnail-
+            // \Image::make($image)->resize(50, 50)->save('images/' . $name . '_thumb' . '.' . $extension);
+
+        } else {
+            session()->flash('message',$image->getErrorMessage());
+            session()->flash('message-type','danger');
+
+            return back();
+        }
+
         Post::create([
             'content' => $request->content,
-            'user_id' => \Auth::user()->id
+            'user_id' => \Auth::user()->id,
+            'image' => $name
         ]);
 
         session()->flash('message','Pinche post creado');

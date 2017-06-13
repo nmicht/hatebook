@@ -15,6 +15,7 @@ class Post extends Model
     protected $fillable = [
         'content',
         'user_id',
+        'image',
     ];
 
     /**
@@ -24,6 +25,7 @@ class Post extends Model
      */
     protected $appends = [
         'abstract',
+        'thumb',
     ];
 
     /**
@@ -35,6 +37,18 @@ class Post extends Model
     {
         return substr($this->content, 0, 30) . '...';
     }
+
+    /**
+     * Get the thumb image name.
+     *
+     * @return string
+     */
+    public function getThumbAttribute ()
+    {
+        $name = explode('.', $this->image);
+        return $name[0] . '_thumb.' . $name[1];
+    }
+
 
     /**
      * Get the diff for created at.
